@@ -7,51 +7,53 @@ var numBoards = 0;
 var numTacks = 0;
 var numImages = 0;
 
+var belowMenu = "20%";
+
 function setBackgroundImg() {
     $("#bod").css("background-image", "url(img/kork03.jpg)");
-    $("#bod").css("background-repeat", "repeat");
 }
 
 function main() {
-    var objSerialized1 = localStorage.getItem("colorFondo");
-    if (objSerialized1 != null) {
-        var color = JSON.parse(objSerialized1);
-        $("#bod").css("backgroundColor", "#" + color);
-        $("#colorSelector div").css("backgroundColor", "#" + color);
-    }
+//    var objSerialized1 = localStorage.getItem("colorFondo");
+//    if (objSerialized1 != null) {
+//        var color = JSON.parse(objSerialized1);
+//         $("#bod").css("backgroundColor", "#" + color);
+//        $("#colorSelector div").css("backgroundColor", "#" + color);
+//    }
+    
+//     $("#colorSelector").ColorPicker({
+//                                     color: "#0C5871",
+                                    
+//                                     onShow: function(colpkr) {
+//                                     $(colpkr).fadeIn(500);
+//                                     $(".imagen").css("zIndex", "0");
+//                                     $(".note").css("zIndex", "0");
+//                                     $(".tablero").css("zIndex", "-1");
+//                                     $("#menu").css("zIndex", "2");
+//                                     return false;
+                                    
+//                                     },
+//                                     onHide: function(colpkr) {
+//                                     $(colpkr).fadeOut(500);
+//                                     organizarCapas();
+//                                     return false;
+                                    
+//                                     },
+//                                     onChange: function(hsb, hex, rgb) {
+//                                     $("#colorSelector div").css("backgroundColor", "#" + hex);
+//                                     $("#bod").css("backgroundColor", "#" + hex);
+                                    
+//                                     // Web Storage - JSON
+//                                     var objSerialized = JSON.stringify(hex);
+//                                     localStorage.setItem("colorFondo", objSerialized);
+                                    
+//                                     }
+                                    
+//     });
     
     setBackgroundImg();
-    
-    $("#colorSelector").ColorPicker({
-                                    color: "#0C5871",
-                                    
-                                    onShow: function(colpkr) {
-                                    $(colpkr).fadeIn(500);
-                                    $(".imagen").css("zIndex", "0");
-                                    $(".note").css("zIndex", "0");
-                                    $(".tablero").css("zIndex", "-1");
-                                    $("#menu").css("zIndex", "2");
-                                    return false;
-                                    
-                                    },
-                                    onHide: function(colpkr) {
-                                    $(colpkr).fadeOut(500);
-                                    organizarCapas();
-                                    return false;
-                                    
-                                    },
-                                    onChange: function(hsb, hex, rgb) {
-                                    $("#colorSelector div").css("backgroundColor", "#" + hex);
-                                    $("#bod").css("backgroundColor", "#" + hex);
-                                    
-                                    // Web Storage - JSON
-                                    var objSerialized = JSON.stringify(hex);
-                                    localStorage.setItem("colorFondo", objSerialized);
-                                    
-                                    }
-                                    
-    });
-    
+    var btnAddNote=$("#addNote");
+    btnAddNote.click(addNote);
     
     setProperties();
     loadNotes();
@@ -85,7 +87,7 @@ function main() {
     $(".color").css("display", "none");
     $(".btnImg").css("display", "none");
     $(".btnXimg").css("display", "none");
-    $("#menu").css("background-image", "url(img/cor2.jpg)");
+//    $("#menu").css("background-image", "url(img/cor2.jpg)");
     
     
 }
@@ -117,7 +119,7 @@ function addBoard() {
     
     x.css("position", "absolute");
     x.css("left", "1%");
-    x.css("top", "8%");
+    x.css("top", belowMenu);
     
     x.mousedown(downTablero);
     
@@ -244,7 +246,7 @@ function addNote() {
     o = $("#" + numNotes);
     o.css("position", "absolute");
     o.css("left", "1%");
-    o.css("top", "8%");
+    o.css("top", belowMenu);
     
     x = $("#" + numNotes);
     
@@ -266,7 +268,6 @@ function addNote() {
     
     $(".btnX").css("display", "none");
     $(".color").css("display", "none");
-    
 }
 
 function setProperties() {

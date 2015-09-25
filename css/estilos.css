@@ -37,15 +37,8 @@ min-height:30px;
 
 .tablero{
 
-position:absolute;
-width:250px;
-height:60px;
 min-width:150px;
 min-height:60px;
-/*background-color:rgba(255,255,255,0.6);*/
-
-background-repeat:no-repeat;
-background-size:100% 100%;
 padding:1em;
 margin :1em;
 border:.5em solid rgb(87,41,18);
@@ -186,13 +179,17 @@ color:#111;
 }
 #menu{
 position:fixed;
-z-index:6000;
 border:1px solid #FFF;
-
-background-repeat:no-repeat;
-background-size:100% 100%;
-margin: 1px;
-height:50px;
+background-color: rgba(0, 0, 0, 0.34);
+/* background-repeat:repeat; */
+/* background-size:100% 100%; */
+margin: 5px;
+/* padding: 15px; */
+padding-left: 60px;
+padding-top: 20px;
+padding-bottom: 15px;
+width: 600px;
+height: 30px;
 border-radius:1em 0 1em 0;
 }
 
