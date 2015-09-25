@@ -7,6 +7,11 @@ var numBoards = 0;
 var numTacks = 0;
 var numImages = 0;
 
+function setBackgroundImg() {
+    $("#bod").css("background-image", "url(img/kork03.jpg)");
+    $("#bod").css("background-repeat", "repeat");
+}
+
 function main() {
     var objSerialized1 = localStorage.getItem("colorFondo");
     if (objSerialized1 != null) {
@@ -15,6 +20,7 @@ function main() {
         $("#colorSelector div").css("backgroundColor", "#" + color);
     }
     
+    setBackgroundImg();
     
     $("#colorSelector").ColorPicker({
                                     color: "#0C5871",
@@ -401,7 +407,7 @@ function clickYellow() {
 
 function overColores() {
     
-    $("#" + numAux + " .colores").slideDown("slow");
+    $("#" + numAux + " .colores").slideDown("fast");
     $("#" + numAux + " .colores").css("zIndex", "500");
 }
 
@@ -411,7 +417,7 @@ function outNote() {
     var num = x.attr("id");
     $("#" + num + " .btnX").css("display", "none");
     $("#" + num + " .color").css("display", "none");
-    $("#" + num + " .colores").slideUp("slow");
+    $("#" + num + " .colores").slideUp("fast");
 }
 
 
